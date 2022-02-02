@@ -1,16 +1,38 @@
 const Employee = require('../lib/Employee');
 
-describe('Employee class', () => {
-    it('To check if the employee name is correct', () => {
+describe('Employee constructor', () => {
+    it('assigns class attributes', () => {
         const Ayako = new Employee('Ayako', '1', 'ayako@gmail.com');
         expect(Ayako.name).toEqual('Ayako');
-    })
-    it('To check if the employee id is correct', () => {
-        const Ayako = new Employee('Ayako', '1', 'ayako@gmail.com');
         expect(Ayako.id).toEqual('1');
-    })
-    it('To check if the employee email is correct', () => {
-        const Ayako = new Employee('Ayako', '1', 'ayako@gmail.com');
         expect(Ayako.email).toEqual('ayako@gmail.com');
     })
 });
+
+describe('Employee methods', () => {
+    it('returns the correct name', () => {
+        const Ayako = new Employee('Ayako', '1', 'ayako@gmail.com');
+        expect(Ayako.getName()).toEqual('Ayako');
+
+    })
+
+    it('returns the correct id', () => {
+        const Ayako = new Employee('Ayako', '1', 'ayako@gmail.com');
+        expect(Ayako.getId()).toEqual('1');
+
+    })
+
+    it('returns the correct email', () => {
+        const Ayako = new Employee('Ayako', '1', 'ayako@gmail.com');
+        expect(Ayako.getEmail()).toEqual('ayako@gmail.com');
+
+    })
+
+    it('returns the correct role', () => {
+        const Ayako = new Employee('Ayako', '1', 'ayako@gmail.com');
+        expect(Ayako.getRole()).toEqual('Employee');
+
+    })
+
+
+})
