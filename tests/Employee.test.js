@@ -7,11 +7,11 @@ describe('Employee constructor', () => {
         expect(Ayako.id).toEqual('1');
         expect(Ayako.email).toEqual('ayako@gmail.com');
     })
-    //     it('should throw errors if provided wrong arguments', () => {
-    //         const person = new Employee('', '-1', 'ayako@gmail.com');
-    //         expect(person.name).toThrow("Expected parameter 'name' to be a non-empty string");
-    //         expect(person.id).toThrow("Expected parameter 'id' to be a non-negative number");
-    //     })
+    // it('should throw errors if provided wrong arguments', () => {
+    //     const person = new Employee('', '-1', 'ayako@gmail.com');
+    //     // expect(person.name).toThrow("Expected parameter 'name' to be a non-empty string");
+    //     // expect(person.id).toThrow("Expected parameter 'id' to be a non-negative number");
+    // })
 });
 
 describe('Employee methods', () => {
