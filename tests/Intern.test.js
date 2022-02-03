@@ -36,6 +36,12 @@ describe('Intern methods', () => {
 
     })
 
+    it('returns the correct school', () => {
+        const Ayako = new Intern('Ayako', '1', 'ayako@gmail.com', 'Osaka University');
+        expect(Ayako.getSchool()).toEqual('Osaka University');
+
+    })
+
     it('returns the correct role', () => {
         const Ayako = new Intern('Ayako', '1', 'ayako@gmail.com');
         expect(Ayako.getRole()).toEqual('Intern');
