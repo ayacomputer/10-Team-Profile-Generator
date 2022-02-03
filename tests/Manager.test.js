@@ -2,10 +2,11 @@ const Manager = require('../lib/Manager');
 
 describe('Manager constructor', () => {
     it('assigns class attributes', () => {
-        const Ayako = new Manager('Ayako', '1', 'ayako@gmail.com');
+        const Ayako = new Manager('Ayako', '1', 'ayako@gmail.com', '0480000000');
         expect(Ayako.name).toEqual('Ayako');
         expect(Ayako.id).toEqual('1');
         expect(Ayako.email).toEqual('ayako@gmail.com');
+        expect(Ayako.officeNumber).toEqual('0480000000');
     })
 });
 
