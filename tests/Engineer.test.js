@@ -27,7 +27,11 @@ describe('Engineer methods', () => {
         expect(Ayako.getEmail()).toEqual('ayako@gmail.com');
 
     })
+    it('returns the correct github username', () => {
+        const Ayako = new Engineer('Ayako', '1', 'ayako@gmail.com', 'ayacomputer');
+        expect(Ayako.gitHub()).toEqual('ayacomputer');
 
+    })
     it('returns the correct role', () => {
         const Ayako = new Engineer('Ayako', '1', 'ayako@gmail.com');
         expect(Ayako.getRole()).toEqual('Engineer');
