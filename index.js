@@ -20,18 +20,86 @@ const Intern = require('./lib/Intern');
 const initialQuestions = [
     {
         type: 'input',
-        question: 'What is your team name?',
+        message: 'What is your team name?',
         name: 'teamName',
     },
     {
         type: 'list',
-        question: 'Which type of team member would you like to add?',
-        name: 'type',
+        message: 'What is the role of the team member?',
+        name: 'role',
         choices: ["Manager", "Intern", "Engineer", "Finish adding members"]
 
     }]
 
+const managerQuestions = [
 
+    {
+        type: "input",
+        message: "What is the manager's name?",
+        name: "name",
+    },
+    {
+        type: "input",
+        message: "What is the manager's ID?",
+        name: "id",
+    },
+    {
+        type: "input",
+        message: "Please enter the manager's email address.",
+        name: "email",
+    },
+    {
+        type: "input",
+        message: "Please enter the office number.",
+        name: "officeNumber",
+    },
+]
+
+const engineerQuestions = [
+    {
+        type: "input",
+        message: "What is the engineer's name?",
+        name: "name",
+    },
+    {
+        type: "input",
+        message: "What is the engineer's ID?",
+        name: "id",
+    },
+    {
+        type: "input",
+        message: "Please enter the engineer's email address.",
+        name: "email",
+    },
+    {
+        type: "input",
+        message: "Please enter the engineer's github username.",
+        name: "github",
+    },
+]
+
+const internQuestions = [
+    {
+        type: "input",
+        message: "What is the intern's name?",
+        name: "name",
+    },
+    {
+        type: "input",
+        message: "What is the intern's ID?",
+        name: "id",
+    },
+    {
+        type: "input",
+        message: "Please enter the intern's email address.",
+        name: "email",
+    },
+    {
+        type: "input",
+        message: "What is the intern's school name.",
+        name: "school",
+    },
+]
 
 
 
@@ -49,13 +117,36 @@ If you would like to add a photo of your teammate, please save the photo with ID
 Please answer the questions bellow:
 `
 const promptUser = () => inquirer.prompt(initialQuestions);
+const promptManager = () => inquirer.prompt(managerQuestions);
+const promptEngineer = () => inquirer.prompt(engineerQuestions);
+const promptIntern = () => inquirer.prompt(internQuestions);
 
 
+let teamName = "";
 
 const init = () => {
     promptUser()
-        .then((answers) => {
-            fs.writeFileSync('index.html', generateHTML(answers))
+        .then((data) => {
+            console.log('data', data);
+            teamName = data.teamName;
+            switch (data.role) {
+                case 'Manager':
+                    return promptManager(data);
+                    break;
+                case 'Engineer':
+                    return promptEngineer(data);
+                    break;
+                case 'Intern':
+                    return promptIntern(data);
+                case 'Finish adding members':
+                    return "";
+                default:
+                    return "";
+            }
+        })
+        .then((data) => {
+            console.log('data', data);
+            fs.writeFileSync('index.html', generateHTML(data))
         })
         .then(() => {
             console.log(`\n-------------------------------------------------\n`);
@@ -65,6 +156,7 @@ const init = () => {
         .catch((err) => console.error(err));
 }
 
+module.exports = teamName;
 
 console.log(message);
 init();
