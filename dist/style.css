@@ -1,0 +1,29 @@
+:root {
+    --darkColor: rgb(30, 35, 39);
+    --primeColor: rgb(46, 105, 81);
+    --lightColor: rgb(245, 248, 247);
+   }
+
+   ::selection {
+    background-color: var(--primeColor);
+    color: var(--lightColor);
+  }
+
+body {
+    font-family: 'Nunito','Outfit', sans-serif;
+    color: var(--darkColor);
+  }
+.teamName {
+    color:var(--primeColor);
+    
+}
+.card:hover {
+    border: solid 1px var(--primeColor);
+    box-shadow: inset 0px 0px 4px var(--primeColor), 0 0 8px var(--primeColor);
+    transition: all 0.5s ease-in-out;
+}
+
+  #contact, #mycontact {
+    font-size:0.8rem;
+   text-decoration: none;
+  }
