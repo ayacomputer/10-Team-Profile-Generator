@@ -50,7 +50,7 @@
  ![ProductScreen Shot](./assets/product.gif)
 
 
-This is a a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. Testing is key to making code maintainable, so you’ll also write a unit test for every part of your code and ensure that it passes each test.
+This is a a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. The user can add as many team members as possible.
 
 <p align = "right">(<a href="#top">back to top</a>)</>
 
@@ -64,9 +64,10 @@ This is a a Node.js command-line application that takes in information about emp
 
 ## Usage
 
-  Following image shows this application's functionality(questions).
+Following images show this application's example html and questions.
 
-![This is an image of the product.](./assets/product.png)
+![This is an image of the prod](./assets/product.png)
+![This is an image of the questions.](./assets/product2.png)
 
 <p align ="right">(<a href="#top">back to top</a>)</>
 
@@ -79,7 +80,12 @@ To get a local copy up and running follow these simple example steps.
  The application will be invoked by using the following command:
 
 
-  `git clone git@github.com:ayacomputer/10-Team-Profile-Generator.git`
+```git clone git@github.com:ayacomputer/10-Team-Profile-Generator.git```
+
+```npm install```
+
+```node index.js```
+
 
 <p align="right">(<a href="#top">back to top</a>)</>
 

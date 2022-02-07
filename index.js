@@ -57,6 +57,9 @@ const addingMember = async (data) => {
                 });
                 break;
             case 'Finish adding members':
+                console.log(chalk.green(`\n-------------------------------------------------\n`));
+                console.log(chalk.blue('Your index.html file has been successfully created.'));
+                console.log(chalk.green(`\n-------------------------------------------------\n`));
                 return fs.appendFileSync('index.html', generateFooter());
             default:
                 return fs.appendFileSync('index.html', generateFooter());
@@ -74,9 +77,7 @@ const init = () => {
         .then((data) => {
             fs.writeFileSync('index.html', generateHeader(data))
         }).then((data) => { addingMember(data); }).then(() => {
-            console.log(chalk.green(`\n-------------------------------------------------\n`));
-            console.log(chalk.blue('Your index.html file has been successfully created.'));
-            console.log(chalk.green(`\n-------------------------------------------------\n`));
+            void 0;
         })
         .catch((err) => console.error(err));
 }
