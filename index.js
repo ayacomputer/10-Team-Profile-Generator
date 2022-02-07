@@ -7,7 +7,8 @@ const { generateHeader,
     generateManager,
     generateFooter, } = require('./dist/generateHTML');
 const {
-    initialQuestions,
+    teamNameQuestion,
+    roleQuestion,
     managerQuestions,
     engineerQuestions,
     internQuestions
@@ -29,46 +30,57 @@ If you would like to add a photo of your teammate,
 please save the photo with ID.png in assets folder.
 Please answer the questions bellow:
 `
-const promptUser = () => inquirer.prompt(initialQuestions);
+const promptTeamName = () => inquirer.prompt(teamNameQuestion);
+const promptRole = () => inquirer.prompt(roleQuestion)
 const promptManager = () => inquirer.prompt(managerQuestions);
 const promptEngineer = () => inquirer.prompt(engineerQuestions);
 const promptIntern = () => inquirer.prompt(internQuestions);
 
+const addingMember = async (data) => {
 
-let teamName = "";
+    promptRole(data).then((data) => {
+        console.log('data', data);
+        switch (data.role) {
+            case 'Manager':
+                return promptManager(data).then((data) => {
+                    console.log('data', data);
+                    fs.appendFileSync('index.html', generateManager(data));
+                    addingMember();
+                });
+                break;
+            case 'Engineer':
+                return promptEngineer(data).then((data) => {
+                    console.log('data', data);
+                    fs.appendFileSync('index.html', generateEngineer(data));
+                    addingMember();
+                });
+                break;
+            case 'Intern':
+                return promptIntern(data).then((data) => {
+                    console.log('data', data);
+                    fs.appendFileSync('index.html', generateIntern(data));
+                    addingMember();
+                });
+                break;
+            case 'Finish adding members':
+                return fs.appendFileSync('index.html', generateFooter());
+            default:
+                return fs.appendFileSync('index.html', generateFooter());
+        }
+
+    })
+}
+
+
+
+
 
 const init = () => {
-    promptUser()
+    promptTeamName()
         .then((data) => {
             console.log('data', data);
             fs.writeFileSync('index.html', generateHeader(data))
-
-            switch (data.role) {
-                case 'Manager':
-                    return promptManager(data).then((data) => {
-                        console.log('data', data);
-                        fs.appendFileSync('index.html', generateManager(data));
-                    });
-                    break;
-                case 'Engineer':
-                    return promptEngineer(data).then((data) => {
-                        console.log('data', data);
-                        fs.appendFileSync('index.html', generateEngineer(data));
-                    });
-                    break;
-                case 'Intern':
-                    return promptIntern(data).then((data) => {
-                        console.log('data', data);
-                        fs.appendFileSync('index.html', generateIntern(data));
-                    });
-                    break;
-                case 'Finish adding members':
-                    return fs.appendFileSync('index.html', generateFooter());
-                default:
-                    return fs.appendFileSync('index.html', generateFooter());
-            }
-        })
-        .then(() => {
+        }).then((data) => { addingMember(data); }).then(() => {
             console.log(`\n-------------------------------------------------\n`);
             console.log('Your index.html file has been successfully created.');
             console.log(`\n-------------------------------------------------\n`);
