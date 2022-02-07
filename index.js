@@ -6,14 +6,14 @@ const { generateHeader,
     generateEngineer,
     generateIntern,
     generateManager,
-    generateFooter, } = require('./dist/generateHTML');
+    generateFooter, } = require('./utils/generateHTML');
 const {
     teamNameQuestion,
     roleQuestion,
     managerQuestions,
     engineerQuestions,
     internQuestions
-} = require('./dist/questions');
+} = require('./utils/questions');
 
 const Employee = require('./lib/Employee');
 const Engineer = require('./lib/Engineer');
