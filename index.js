@@ -26,9 +26,6 @@ const message = `\n
 ----------------------------------------
 Let's create your team profile website!
 ----------------------------------------
-
-If you would like to add a photo of your teammate, 
-please save the photo with ID.png in assets folder.
 Please answer the questions bellow:
 `
 const promptTeamName = () => inquirer.prompt(teamNameQuestion);
