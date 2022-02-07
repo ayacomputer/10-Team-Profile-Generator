@@ -1,5 +1,6 @@
 
 const inquirer = require('inquirer');
+const chalk = require('chalk');
 const fs = require('fs');
 const { generateHeader,
     generateEngineer,
@@ -39,25 +40,21 @@ const promptIntern = () => inquirer.prompt(internQuestions);
 const addingMember = async (data) => {
 
     promptRole(data).then((data) => {
-        console.log('data', data);
         switch (data.role) {
             case 'Manager':
                 return promptManager(data).then((data) => {
-                    console.log('data', data);
                     fs.appendFileSync('index.html', generateManager(data));
                     addingMember();
                 });
                 break;
             case 'Engineer':
                 return promptEngineer(data).then((data) => {
-                    console.log('data', data);
                     fs.appendFileSync('index.html', generateEngineer(data));
                     addingMember();
                 });
                 break;
             case 'Intern':
                 return promptIntern(data).then((data) => {
-                    console.log('data', data);
                     fs.appendFileSync('index.html', generateIntern(data));
                     addingMember();
                 });
@@ -78,16 +75,15 @@ const addingMember = async (data) => {
 const init = () => {
     promptTeamName()
         .then((data) => {
-            console.log('data', data);
             fs.writeFileSync('index.html', generateHeader(data))
         }).then((data) => { addingMember(data); }).then(() => {
-            console.log(`\n-------------------------------------------------\n`);
-            console.log('Your index.html file has been successfully created.');
-            console.log(`\n-------------------------------------------------\n`);
+            console.log(chalk.green(`\n-------------------------------------------------\n`));
+            console.log(chalk.blue('Your index.html file has been successfully created.'));
+            console.log(chalk.green(`\n-------------------------------------------------\n`));
         })
         .catch((err) => console.error(err));
 }
 
 
-console.log(message);
+console.log(chalk.blue(message));
 init();
