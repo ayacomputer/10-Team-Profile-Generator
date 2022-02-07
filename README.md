@@ -58,6 +58,7 @@ This is a a Node.js command-line application that takes in information about emp
 * [Node.js](https://nodejs.org/) 
 * [Inquirer package](https://www.npmjs.com/package/inquirer) 
 * [Jest package](https://www.npmjs.com/package/jest)  
+*[Chalk package](https://www.npmjs.com/package/chalk)
 * HTML  
 <p align = "right"> (<a href="#top">back to top</a>)</>
 
