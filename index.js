@@ -47,6 +47,7 @@ const addingMember = async (data) => {
                 });
                 break;
             case 'Engineer':
+                // var engineer = new Engineer(data.name, data.id, data.email, data.github);
                 return promptEngineer(data).then((data) => {
                     fs.appendFileSync('index.html', generateEngineer(data));
                     addingMember();
