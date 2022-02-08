@@ -40,7 +40,9 @@ const addingMember = async (data) => {
         switch (data.role) {
             case 'Manager':
                 return promptManager(data).then((data) => {
-                    fs.appendFileSync('index.html', generateManager(data));
+                    var manager = new Manager(data.name, data.id, data.email, data.officeNumber);
+                    console.log(manager);
+                    fs.appendFileSync('index.html', generateManager(manager));
                     addingMember();
                 });
                 break;
