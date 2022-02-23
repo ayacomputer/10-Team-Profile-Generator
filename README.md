@@ -48,7 +48,7 @@
 
 
  ![ProductScreen Shot](./assets/product.gif)
- [Click here to watch the walk through video]([Click here to watch the walk through video](https://watch.screencastify.com/v/dy2RHr6M4dYpZ0Gsxy8Q)
+ [Click here to watch the walk through video](https://watch.screencastify.com/v/dy2RHr6M4dYpZ0Gsxy8Q)
 
 
 This is a a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. The user can add as many team members as possible.
