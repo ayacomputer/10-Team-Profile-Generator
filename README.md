@@ -48,6 +48,7 @@
 
 
  ![ProductScreen Shot](./assets/product.gif)
+ [Click here to watch the walk through video](https://watch.screencastify.com/v/dy2RHr6M4dYpZ0Gsxy8Q)
 
 
 This is a a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. The user can add as many team members as possible.
@@ -68,6 +69,7 @@ Following images show this application's example html and questions.
 
 ![This is an image of the prod](./assets/product.png)
 ![This is an image of the questions.](./assets/product2.png)
+
 
 <p align ="right">(<a href="#top">back to top</a>)</>
 
